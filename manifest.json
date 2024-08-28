@@ -1,0 +1,25 @@
+{
+    "manifest_version": 3,
+    "name": "Popup extension that requests permissions",
+    "description": "Extension that includes a popup and requests host permissions and storage permissions .",
+    "version": "1.0",
+    "icons": {
+        "128": "./icon.png"
+    },
+    "action": {
+      "default_popup": "index.html",
+      "default_icon": {
+            "128": "./icon.png"
+        }
+    },
+    "permissions": ["storage", "webNavigation", "scripting"],
+    "host_permissions": [
+        "https://*/*",
+        "http://*/*"
+    ],
+    "background": {
+        "service_worker": "./javascript/main.js"
+    }
+  }
+
+    

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/main.css" rel="stylesheet" type="text/css" />
+    <title>Password Generator</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Password Generator</h1>
+        <article class="width setting background">
+            <section class="width horizontal">
+                <div class="width centered background password" id="generated_password"></div>
+                <button class="button centered first_button" id="regenerate"></button>
+                <button class="button centered last_button" id="copyToClipboard"></button>
+            </section>
+            <section class="width entropy_container">
+                    <progress id="progress" min="0" max="100"></progress>
+                    <div class="horizontal entropy descriptor">
+                        <span class="entropy-items">Entropy: <span id="entropy"></span></span>
+                        <span class="entropy-items">-</span>
+                        <span class="entropy-items" id="entropy_label"></span>
+                    </div>
+            </section>
+        </article>
+        <article>
+            <section class="section width">
+                <div class="setting vertical width background descriptor">
+                    <input name="length" type="range" id="length" min="1" max="32" value="12" step="1">
+                    <div>
+                        <span>Length: </span>
+                        <span id="lengthDescription"></span>
+                    </div>
+                </div>
+                <div class="setting horizontal width background">
+                    <span>Lowercase Characters</span>
+                    <input id="lowercase" type="checkbox" checked>
+                    <label class="label" for="lowercase">Toggle</label>
+                </div>
+                <div class="setting horizontal width background">
+                    <span>Uppercase Characters</span>
+                    <input id="uppercase" type="checkbox" checked>
+                    <label class="label" for="uppercase">Toggle</label>
+                </div>
+                <div class="setting horizontal width background">
+                    <span>Numbers Characters</span>
+                    <input id="numbers" type="checkbox">
+                    <label class="label" for="numbers">Toggle</label>
+                </div>
+                <div class="setting horizontal width background">
+                    <span>Special Characters</span>
+                    <input id="special" type="checkbox">
+                    <label  class="label" for="special">Toggle</label>
+                </div>
+            </section>
+        </article>
+    </div>
+    <script src="javascript/constants.js"></script>
+    <script src="javascript/password-generator.js"></script>
+    <script src="javascript/element-handler.js"></script>
+    <script src="javascript/eventlistener.js"></script>
+    <script src="javascript/main.js"></script>
+    <script>generatePassword()</script>
+</body>
+</html>

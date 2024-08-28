@@ -1,0 +1,238 @@
+:root {
+    box-sizing: border-box;
+    --color-background: rgb(4, 30, 31);
+    --color-font: rgba(218, 215, 215, 1);
+    --color-slider: rgb(52, 195, 116);
+    --color-active: rgb(117, 223, 165);
+    --color-unchecked: rgba(12, 35, 22, 0.988);
+    --color-section: rgba(255, 255, 255, 0.08);
+    --color-descriptors: rgba(255, 255, 255, 0.5);
+}
+
+html {
+    color: var(--color-font);
+    background-color: var(--color-background);
+    font-family: "Montserrat";
+    font-size: 16px;
+    width: 100%;
+}
+
+.container {
+    padding: 1rem;
+    width: 25rem;
+    margin: auto;
+}
+
+.width {
+    width: 100%;
+}
+
+.centered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.background {
+    background-color: var(--color-section);
+}
+
+.title {
+    width: 100%;
+    display: block;
+    text-align: center;
+}
+
+.button {
+    background-color: var(--color-slider);
+    border: none;
+    padding: 0.5rem;
+    width: 3rem;
+    height: 2.5rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+}
+
+.button:active {
+    background-color: var(--color-active);
+}
+
+.first_button {
+    background-image: url('/assets/autorenew.svg');
+}
+
+.last_button {
+    border-top-right-radius: 0.3rem;
+    border-bottom-right-radius: 0.3rem;
+    background-image: url('/assets/paste.svg');
+    border-left: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.password {
+    border-top-left-radius: 0.3rem;
+    border-bottom-left-radius: 0.3rem;
+}
+
+.section {
+    margin-top: 4rem;
+}
+
+.setting {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+.vertical {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.8rem;
+}
+
+.horizontal {
+    display: flex;
+    align-content: space-between;
+    justify-content: center;
+}
+
+.entropy_container {
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.entropy {
+    display: flex;
+    align-content: space-between;
+    justify-content: center;
+    font-size: 0.8rem;
+    width: 100%;
+    margin-top: 0.2rem;
+}
+
+.descriptor {
+    color: var(--color-descriptors);
+}
+
+.entropy-items {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+progress {
+    width: 100%;
+    -webkit-appearance: none;
+}
+
+progress::-webkit-progress-value {
+    border-radius: 0.5rem;
+    background-color: var(--color-progress);
+}
+
+progress::-webkit-progress-inner-element {
+    border-radius: 0.5rem;
+}
+
+progress::-webkit-progress-bar {
+    background-color: var(--color-section);
+    border-radius: 0.5rem;
+    height: 0.5rem;
+}
+
+input[type=range] {
+    -webkit-appearance: none;
+    width: 90%;
+    height: 2px;
+    border-radius: 5px;
+    background: var(--color-font);
+    outline: none;
+    padding: 0;
+    cursor: pointer;
+    margin-bottom: 0.8rem;
+    margin-top: 1rem;
+    position: relative;
+}
+
+input[type=range]::after,
+input[type=range]::before {
+    color: var(--color-descriptors);
+    font-size: 0.8rem;
+    top: -0.4rem
+}
+
+input[type=range]::before {
+    content: attr(min);
+    position: absolute;
+    left: -1rem;
+}
+
+input[type=range]::after {
+    content: attr(max);
+    position: absolute;
+    right: -1.5rem;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--color-slider);
+    cursor: pointer;
+    transition: all 0.15s ease-in-out;
+}
+
+input[type=range]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border: 0;
+    border-radius: 50%;
+    background: var(--color-slider);
+    cursor: pointer;
+    transition: background 0.15s ease-in-out;
+}
+
+input[type=checkbox] {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+    margin-left: auto;
+}
+
+label {
+    cursor: pointer;
+    text-indent: -100rem;
+    width: 2.5rem;
+    height: 1.25rem;
+    background: var(--color-unchecked);
+    display: block;
+    border-radius: 1.25rem;
+    position: relative;
+}
+
+label:after {
+    content: "";
+    position: absolute;
+    top: 0.0625rem;
+    left: 0.0625rem;
+    width: 1.125rem;
+    height: 1.125rem;
+    background: var(--color-font);
+    border-radius: 1.125rem;
+    -webkit-transition: all 1s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+input:checked+label {
+    background: var(--color-slider);
+}
+
+input:checked+label:after {
+    left: calc(100% - 0.0625rem);
+    transform: translateX(-100%);
+}
+
+label:active:after {
+    width: 1.625rem;
+}
